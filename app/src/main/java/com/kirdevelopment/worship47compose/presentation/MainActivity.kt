@@ -6,10 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavGraph
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.rememberNavController
+import com.kirdevelopment.worship47compose.presentation.ui.components.CustomTopAppBar
 import com.kirdevelopment.worship47compose.presentation.ui.theme.Worship47ComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -19,15 +20,19 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             Worship47ComposeTheme {
-                // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-
+                    CustomTopAppBar()
+                    val navController = rememberNavController()
+                    val navGraph = NavGraphBuilder().createNavGraph(navController, this)
+                    NavHost(
+                        navController = navController,
+                        graph = navGraph
+                    )
                 }
             }
         }
     }
 }
-

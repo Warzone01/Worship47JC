@@ -97,6 +97,10 @@ dependencies {
     // images
     implementation("io.coil-kt:coil-compose:2.5.0")
 
+    // other
+    implementation ("com.google.accompanist:accompanist-pager:0.12.0")
+    implementation( "com.airbnb.android:lottie-compose:5.2.0")
+
     // test
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
